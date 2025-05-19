@@ -1,6 +1,6 @@
 
 import streamlit as st
-
+from .chat import ChatPage
 class App():
     def ui(self):
         st.set_page_config(page_title="Doc-Rag",layout="wide")
@@ -15,7 +15,7 @@ class App():
 
         with tabs[1]:
             st.header("Chat")
-            st.write("Chatbot.")
+            ChatPage()
 
         with tabs[2]:
             st.header("Files")

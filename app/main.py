@@ -1,6 +1,7 @@
 import streamlit as st
 from .chat import ChatPage
 from .help import HelpPage
+from .files import FilePage
 from .login import LoginPage  # <- add this if it's in a separate file
 from .libs.ktem.pages.resources import render_resources
 class App():

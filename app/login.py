@@ -79,6 +79,7 @@ class LoginPage:
                 st.session_state.username = username
                 st.session_state.history = user.get("history", [])
                 st.success(f"Welcome back, {username}!")
+                st.rerun()
 
     def render_logout(self):
         st.success(f"✅ Logged in as: `{st.session_state.username}`")

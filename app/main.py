@@ -2,6 +2,7 @@ import streamlit as st
 from .chat import ChatPage
 from .help import HelpPage
 from .login import LoginPage  # <- add this if it's in a separate file
+from .st_settings import show_settings
 
 class App():
     def ui(self):
@@ -35,8 +36,8 @@ class App():
                 st.write("Configure the application resources.")
 
             with tabs[4]:
-                st.header("⚙️ Settings")
-                st.write("Configure application settings.")
+                with tabs[4]:
+                    show_settings()
 
         else:
             for i in range(1, 5):

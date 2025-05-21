@@ -4,6 +4,8 @@ from .help import HelpPage
 from .files import FilePage
 from .login import LoginPage  # <- add this if it's in a separate file
 from .libs.ktem.pages.resources import render_resources
+from .st_settings import show_settings
+
 class App():
     
     def ui(self):
@@ -37,8 +39,8 @@ class App():
                 render_resources()
 
             with tabs[4]:
-                st.header("⚙️ Settings")
-                st.write("Configure application settings.")
+                with tabs[4]:
+                    show_settings()
 
         else:
             for i in range(1, 5):

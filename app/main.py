@@ -1,10 +1,10 @@
 
 import streamlit as st
-
+ 
 class App():
     def ui(self):
         st.set_page_config(page_title="Doc-Rag",layout="wide")
-
+  
         st.title("Doc-Rag")
         
         tabs = st.tabs(["Login", "Chat", "Files", "Resources","Settings","Help"])

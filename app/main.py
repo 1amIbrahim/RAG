@@ -1,34 +1,49 @@
-
 import streamlit as st
+from .chat import ChatPage
+from .help import HelpPage
+from .login import LoginPage  # <- add this if it's in a separate file
 
 class App():
     def ui(self):
-        st.set_page_config(page_title="Doc-Rag",layout="wide")
+        st.set_page_config(page_title="Doc-RAG", layout="wide")
+        st.title("📄 Doc-RAG")
 
-        st.title("Doc-Rag")
-        
-        tabs = st.tabs(["Login", "Chat", "Files", "Resources","Settings","Help"])
-        
+        # Initialize session state
+        if "logged_in" not in st.session_state:
+            st.session_state.logged_in = False
+        if "username" not in st.session_state:
+            st.session_state.username = None
+
+        tabs = st.tabs(["Login", "Chat", "Files", "Resources", "Settings", "Help"])
+
+        # LOGIN TAB
         with tabs[0]:
-            st.header("Login")
-            st.write("Welcome to the Doc-Rag system.")
+            st.header("🔐 Login")
+            LoginPage()
 
-        with tabs[1]:
-            st.header("Chat")
-            st.write("Chatbot.")
+        # AUTHENTICATED TABS
+        if st.session_state.logged_in:
+            with tabs[1]:
+                ChatPage()
 
-        with tabs[2]:
-            st.header("Files")
-            st.write("Perform document search here.")
+            with tabs[2]:
+                st.header("📁 Files")
+                st.write("Perform document search here.")
 
-        with tabs[3]:
-            st.header("Resources")
-            st.write("Configure the application Resources.")
-    
-        with tabs[4]:
-            st.header("Settings")
-            st.write("Configure the application Settings.")
-        
+            with tabs[3]:
+                st.header("🔧 Resources")
+                st.write("Configure the application resources.")
+
+            with tabs[4]:
+                st.header("⚙️ Settings")
+                st.write("Configure application settings.")
+
+        else:
+            for i in range(1, 5):
+                with tabs[i]:
+                    st.warning("🔒 Please log in to access this section.")
+
+        # HELP TAB (always accessible)
         with tabs[5]:
-            st.header("Help")
-            st.write("Help Page.")
+            st.header("❓ Help")
+            HelpPage()

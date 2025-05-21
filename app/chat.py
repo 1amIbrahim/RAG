@@ -73,7 +73,7 @@ class ChatPage:
         with col3:
             st.subheader("Information Panel")
             st.markdown("PDF Modal Placeholder")
-            st.pyplot()  # Placeholder for plot
+            
             st.markdown("Info Panel Placeholder")
             
     def get_bot_response(self, prompt):

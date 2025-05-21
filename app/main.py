@@ -30,7 +30,7 @@ class App():
 
             with tabs[2]:
                 st.header("📁 Files")
-                st.write("Perform document search here.")
+                FilePage()
 
             with tabs[3]:
                 st.header("🔧 Resources")

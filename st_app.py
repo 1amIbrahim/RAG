@@ -1,5 +1,5 @@
-from app.libs.ktem.app import KotaemonApp
+from app.main import App
 
-if __name__ == "__main__":
-    app = KotaemonApp()
-    app.run()
+
+app = App()
+app.ui()

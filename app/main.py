@@ -2,8 +2,9 @@ import streamlit as st
 from .chat import ChatPage
 from .help import HelpPage
 from .login import LoginPage  # <- add this if it's in a separate file
-
+from .libs.ktem.pages.resources import render_resources
 class App():
+    
     def ui(self):
         st.set_page_config(page_title="Doc-RAG", layout="wide")
         st.title("📄 Doc-RAG")
@@ -32,7 +33,7 @@ class App():
 
             with tabs[3]:
                 st.header("🔧 Resources")
-                st.write("Configure the application resources.")
+                render_resources()
 
             with tabs[4]:
                 st.header("⚙️ Settings")
